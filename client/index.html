@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"
+      defer
+    ></script>
+    <script type="module" src="/src/main.ts" defer></script>
+    <title>Aiden</title>
+  </head>
+  <body>
+    <div class="header hidden">Aiden</div>
+
+    <div id="intro-slider" class="slider">
+      <div class="intro-header">
+        <h1>Welcome To Aiden</h1>
+        <span>Your First Line of Aid, Anytime</span>
+      </div>
+
+      <div class="sentry">
+        <img src="" alt="sentry" id="bot-image" />
+        <h2>hi, i'm Sentry</h2>
+      </div>
+
+      <div class="text">
+        <p>
+          Aiden provides AI-generated first-aid guidance and does not replace
+          professional medical advice, diagnosis or emergency services. Always
+          seek licensed medical help when possible or in situations when things
+          escalate
+        </p>
+      </div>
+
+      <button class="slider-btn">Continue</button>
+    </div>
+
+    <div class="main-ui hidden">
+      <div class="chat-container">
+        <div class="message bot">
+          hi, i am Sentry, i help you stay safe, calm and prepared in
+          emergencies
+        </div>
+
+        <div class="message user">My brother slipped and fell in a ditch</div>
+      </div>
+
+      <div class="input-area">
+        <textarea
+          name=""
+          id="chatinput"
+          class="chatInput"
+          placeholder="i'm Sentry, how can i assist you?"
+        ></textarea>
+        <button id="sendbtn">Send</button>
+      </div>
+    </div>
+  </body>
+</html>
