@@ -1,5 +1,5 @@
 import {db} from './firebase';
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 
 
@@ -9,3 +9,5 @@ export async function saveUserToStorage(newUser:object, id: string) {
   await setDoc(docRef, newUser)
   return {success: true}
 }
+
+export {serverTimestamp}

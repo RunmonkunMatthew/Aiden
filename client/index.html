@@ -32,7 +32,7 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script type="module" src="/src/main.ts" defer></script>
+    <script type="module" src="./src/main.ts" defer></script>
     <title>Aiden</title>
   </head>
   <body>
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Alert -->
-    <div class="alert hidden" role="alert">
+    <div class="alert hidden" id="alert" role="alert">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -105,12 +105,14 @@
 
     <div class="main-ui hidden">
       <div class="chat-container">
-        <div class="message bot">
-          hi, i am Sentry, i help you stay safe, calm and prepared in
-          emergencies
-        </div>
+        <div class="messages" id="messages">
+          <div class="message bot">
+            hi, i am Sentry, i help you stay safe, calm and prepared in
+            emergencies
+          </div>
 
-        <div class="message user">My brother slipped and fell in a ditch</div>
+          <div class="message user">My brother slipped and fell in a ditch</div>
+        </div>
       </div>
 
       <div class="input-area">
@@ -149,7 +151,7 @@
           <div class="modal-body">
             <form class="form" id="signup-form">
               <div class="form-control">
-                <label for="email">Email</label>
+                <label for="signup-email">Email</label>
                 <input
                   type="email"
                   placeholder="example@gmail.com"
@@ -158,7 +160,7 @@
               </div>
 
               <div class="form-control">
-                <label for="password">Password</label>
+                <label for="signup-password">Password</label>
                 <input
                   type="password"
                   placeholder="******"
@@ -167,14 +169,8 @@
               </div>
 
               <div class="btns">
-                <button type="submit" id="submitbtn">
-                  Sign up
-
-                  <div class="spinner-border spinner-border-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                </button>
-                <button type="button" id="googlebtn">
+                <button type="submit" id="signup-btn">Sign up</button>
+                <button type="button" id="google-signup-btn">
                   Continue with Google
                 </button>
               </div>
@@ -209,6 +205,7 @@
               Log in to continue<span>.</span>
             </h5>
             <button
+              id="closelogin"
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
@@ -218,7 +215,7 @@
           <div class="modal-body">
             <form class="form" id="login-form">
               <div class="form-control">
-                <label for="email">Email</label>
+                <label for="login-email">Email</label>
                 <input
                   type="email"
                   placeholder="example@gmail.com"
@@ -227,7 +224,7 @@
               </div>
 
               <div class="form-control">
-                <label for="password">Password</label>
+                <label for="login-password">Password</label>
                 <input
                   type="password"
                   placeholder="******"
@@ -236,8 +233,8 @@
               </div>
 
               <div class="btns">
-                <button type="submit" id="submitbtn">Log in</button>
-                <button type="button" id="googlebtn">
+                <button type="submit" id="login-btn">Log in</button>
+                <button type="button" id="google-login-btn">
                   Continue with Google
                 </button>
               </div>
@@ -293,11 +290,6 @@
           >
             Dropdown button
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </div>
       </div>
     </div>
