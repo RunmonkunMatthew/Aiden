@@ -12,6 +12,7 @@
     <title>Aiden</title>
   </head>
   <body>
+<<<<<<< Updated upstream
     <div class="header hidden">Aiden</div>
 
     <div id="intro-slider" class="slider">
@@ -38,6 +39,48 @@
     </div>
 
     <div class="main-ui hidden">
+=======
+    <div class="header">
+      <button
+        class="btn btn-primary"
+        id="leftmodal"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h3>Aiden</h3>
+
+      <button id="emergency">
+        <i class="fa-solid fa-phone"></i>
+      </button>
+    </div>
+
+    <!-- Alert -->
+    <div class="alert hidden" id="alert" role="alert">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+        viewBox="0 0 16 16"
+        role="img"
+        aria-label="Warning:"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      <div class="alert-text">An example alert with an icon</div>
+    </div>
+
+    <div id="intro-slider" class="slider hidden"></div>
+
+    <div class="main-ui">
+>>>>>>> Stashed changes
       <div class="chat-container">
         <div class="message bot">
           hi, i am Sentry, i help you stay safe, calm and prepared in
@@ -50,12 +93,186 @@
       <div class="input-area">
         <textarea
           name=""
-          id="chatinput"
+          id="chat-input"
           class="chatInput"
           placeholder="i'm Sentry, how can i assist you?"
         ></textarea>
+<<<<<<< Updated upstream
         <button id="sendbtn">Send</button>
       </div>
     </div>
+=======
+        <button id="chat-btn"><i class="fa-regular fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">
+              Sign up<span>.</span>
+            </h5>
+            <button
+              id="closebtn"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="signup-form">
+              <div class="form-control">
+                <label for="signup-email">Email</label>
+                <input
+                  type="email"
+                  placeholder="example@gmail.com"
+                  id="signup-email"
+                />
+              </div>
+
+              <div class="form-control">
+                <label for="signup-password">Password</label>
+                <input
+                  type="password"
+                  placeholder="******"
+                  id="signup-password"
+                />
+              </div>
+
+              <div class="btns">
+                <button type="submit" id="signup-btn">Sign up</button>
+                <button type="button" id="google-signup-btn">
+                  Continue with Google
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            Already have an account?
+            <button
+              id="switch-auth"
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              log in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModalToggle2"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel2">
+              Log in to continue<span>.</span>
+            </h5>
+            <button
+              id="closelogin"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="login-form">
+              <div class="form-control">
+                <label for="login-email">Email</label>
+                <input
+                  type="email"
+                  placeholder="example@gmail.com"
+                  id="login-email"
+                />
+              </div>
+
+              <div class="form-control">
+                <label for="login-password">Password</label>
+                <input
+                  type="password"
+                  placeholder="******"
+                  id="login-password"
+                />
+              </div>
+
+              <div class="btns">
+                <button type="submit" id="login-btn">Log in</button>
+                <button type="button" id="google-login-btn">
+                  Continue with Google
+                </button>
+              </div>
+
+              <a href="#">forget password</a>
+            </form>
+          </div>
+          <div class="modal-footer" id="login-footer">
+            Don't have an account?
+            <button
+              id="switch-auth"
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              sign up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left Modal -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+          Chat history<span>.</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="mt-3">
+          <button
+            class="btn btn-secondary log-out"
+            type="button"
+            id="log-out-btn"
+            data-bs-toggle="dropdown"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+>>>>>>> Stashed changes
   </body>
 </html>
