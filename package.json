@@ -4,10 +4,9 @@
   "description": "Ai-Powered First Aid Companion",
   "main": "index.js",
   "scripts": {
-    "dev:client": "cd && npm run dev",    
+    "dev:client": "cd client && npm run dev",
     "build:client": "cd client && npm run build",
-
-    "dev:proxy": "nodemon server/server.ts",
+    "dev:proxy": "nodemon --watch 'server/**/*.ts' --exec ts-node server/server.ts",
     "build:proxy": "tsc --project tsconfig.json --outDir server/dist",
     "start:proxy": "node server/dist/server.js"
   },
@@ -20,8 +19,10 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^24.10.1",
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2"
   }
 }
