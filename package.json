@@ -1,0 +1,29 @@
+{
+  "name": "aiden-proxy",
+  "version": "1.0.0",
+  "description": "Ai-Powered First Aid Companion",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "build:client": "cd client && npm run build",
+    "dev:proxy": "nodemon --watch 'server/**/*.ts' --exec ts-node server/server.ts",
+    "build:proxy": "tsc --project tsconfig.json --outDir server/dist",
+    "start:proxy": "node server/dist/server.js"
+  },
+  "author": "Runmonkun Matthew",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase": "^12.7.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2"
+  }
+}

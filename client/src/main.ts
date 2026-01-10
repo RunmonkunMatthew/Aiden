@@ -1,4 +1,4 @@
-import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator } from './helper';
+import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
 import {createAccount, loginAccount, signUserOut} from '../config/auth';
 import axios from 'axios';
 import bot from '../public/bot.png?url';
@@ -36,7 +36,7 @@ async function onSendRequest() {
   
   addTextToDom('user', message)
   showTypingIndicator()
-
+  
   const botRes = await fetchBotReply(API_URL, message)
   console.log(botRes);
   
@@ -44,6 +44,7 @@ async function onSendRequest() {
   removeTypingIndicator()
   addTextToDom('bot', botRes.aiReply)
   
+  scrollToBottom()
 }
 
 // fetch bot reply
