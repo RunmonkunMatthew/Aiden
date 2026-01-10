@@ -37,6 +37,7 @@ async function onSendRequest() {
   addTextToDom('user', message)
   showTypingIndicator()
   
+  
   const botRes = await fetchBotReply(API_URL, message)
   console.log(botRes);
   
