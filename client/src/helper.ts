@@ -45,7 +45,7 @@ export function showMainUi():void {
   mainUi.classList.remove('hidden')
 }
 
-//s howWelcome
+//showWelcome
 export function showWelcome():void {
   const header = document.querySelector('.header') as HTMLDivElement;
   const slider = document.querySelector('.slider') as HTMLDivElement;
@@ -155,4 +155,10 @@ export function formatFirebaseError(error: unknown): string {
     return firebaseErrorMap[error.code] ?? "Something went wrong.";
   }
   return "Something went wrong.";
+}
+
+export function scrollToBottom(){
+  const messages = document.querySelector('#messages')! as HTMLDivElement
+
+  messages.scrollTop = messages.scrollHeight
 }

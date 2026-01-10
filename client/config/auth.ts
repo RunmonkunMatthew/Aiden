@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import type { User } from "../src/types";
 import { auth} from "./firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup,signOut, } from "firebase/auth";
@@ -44,7 +42,3 @@ export async function resetPassword(email:string) {
 export async function signUserOut() {
   await signOut(auth)
 }
-
-
-
->>>>>>> Stashed changes

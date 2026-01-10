@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-import './css/style.css'
-import bot from '../public/bot.png?url'
-
-const botImage = document.getElementById('bot-image') as HTMLImageElement
-botImage.src = bot
-
-=======
 import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator } from './helper';
 import {createAccount, loginAccount, signUserOut} from '../config/auth';
 import axios from 'axios';
@@ -32,25 +24,32 @@ const loginBtn = document.getElementById('login-btn') as HTMLButtonElement
 const inputBar = document.querySelector('.input-area') as HTMLElement;
 
 // Form Elements
-const chatInput = document.getElementById('chat-input') as HTMLInputElement
+const chatInput = document.getElementById('chat-input') as HTMLTextAreaElement
 const chatBtn = document.getElementById('chat-btn') as HTMLButtonElement
 
 // OnSendRequest
 async function onSendRequest() {
   const API_URL : string = 'http://localhost:5000/api/chat'
   const message: string = chatInput.value
+
+  if(message === '') {return} else message === '' 
   
   addTextToDom('user', message)
+  showTypingIndicator()
 
   const botRes = await fetchBotReply(API_URL, message)
-
   console.log(botRes);
+  
+
+  removeTypingIndicator()
+  addTextToDom('bot', botRes.aiReply)
   
 }
 
 // fetch bot reply
 async function fetchBotReply(url:string, message:string) {
-  return await axios.post(url, message)  
+  const res = await axios.post(url, {message})  
+  return res.data
 }
 
 // Add text to DOM
@@ -160,4 +159,3 @@ window.visualViewport?.addEventListener('scroll', () => {
   inputBar.style.transform = `translate(${window.visualViewport?.offsetTop}px)`
 })
 chatBtn.addEventListener('click', onSendRequest)
->>>>>>> Stashed changes
