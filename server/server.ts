@@ -23,7 +23,7 @@ app.use(
 );
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({message: 'Welcome to aiden, your first line of aid...anytime.',})
+  res.json({message: 'Welcome to aiden', result: 'Done', console:process.env.GEMINI_API_KEY})
 })
 
 app.post('/api/chat', async (req: Request, res: Response) => {
