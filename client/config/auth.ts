@@ -1,6 +1,6 @@
 import type { User } from "../src/types";
 import { auth} from "./firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup,signOut, } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail,signOut, } from "firebase/auth";
 import {saveUserToStorage, serverTimestamp} from './storage'
 
 

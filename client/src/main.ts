@@ -22,6 +22,7 @@ const closeLogin = document.getElementById('closelogin') as HTMLButtonElement
 const signupBtn = document.getElementById('signup-btn') as HTMLButtonElement
 const loginBtn = document.getElementById('login-btn') as HTMLButtonElement
 const inputBar = document.querySelector('.input-area') as HTMLElement;
+const signoutBtn = document.getElementById('log-out-btn') as HTMLButtonElement
 
 // Form Elements
 const chatInput = document.getElementById('chat-input') as HTMLTextAreaElement
@@ -160,3 +161,4 @@ window.visualViewport?.addEventListener('scroll', () => {
   inputBar.style.transform = `translate(${window.visualViewport?.offsetTop}px)`
 })
 chatBtn.addEventListener('click', onSendRequest)
+signoutBtn.addEventListener('click', signUserOut)
