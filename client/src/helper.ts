@@ -45,6 +45,7 @@ export function showMainUi():void {
   mainUi.classList.remove('hidden')
 }
 
+
 //showWelcome
 export function showWelcome():void {
   const header = document.querySelector('.header') as HTMLDivElement;

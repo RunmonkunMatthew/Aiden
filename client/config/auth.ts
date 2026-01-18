@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswor
 import {saveUserToStorage, serverTimestamp} from './storage'
 
 
+
 export async function createAccount(email:string, password:string) {
     const res = await createUserWithEmailAndPassword(auth, email, password)
     const user = await res.user;
