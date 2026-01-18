@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 // cors middleware
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173','https://aiden-7z8a.onrender.com'],
     credentials: true,
   })
 );
