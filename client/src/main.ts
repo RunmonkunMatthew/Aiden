@@ -1,4 +1,4 @@
-import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
+import { showAlert, showSpinner, hideSpinner, showMainUi, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
 import {createAccount, loginAccount, signUserOut} from '../config/auth';
 import axios from 'axios';
 import bot from '../public/bot.png?url';

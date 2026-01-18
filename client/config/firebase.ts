@@ -1,10 +1,11 @@
 import {initializeApp} from 'firebase/app'
 import {getAuth} from 'firebase/auth'
-import {getFirestore} from 'firebase/firestore'
-
+import {getFirestore,} from 'firebase/firestore'
+import dotEnv from 'dotenv'
+dotEnv.config()
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAjWgGqERNlKzaHyimqPzLUUVLGq1l1x2E",
+  apiKey: process.env.GEMINI_API_KEY,
   authDomain: "aidenb6901.firebaseapp.com",
   projectId: "aidenb6901",
   storageBucket: "aidenb6901.firebasestorage.app",
