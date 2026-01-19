@@ -1,15 +1,7 @@
 import { FirebaseError } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-export function router(){
-  const pages = {
-    welcome:  document.getElementById('intro-slider') as HTMLDivElement,
-    chat: document.getElementById('main-ui') as HTMLDivElement
-  }
-
-  
-}
-
+//render
 export function render() {
   const auth = getAuth()
 
@@ -21,6 +13,7 @@ export function render() {
     }
   })
 }
+
 
 // show main ui
 export function showMainUi():void {
@@ -44,7 +37,7 @@ export function showWelcome():void {
   mainUi.classList.add('hidden')
 }
 
-// Show auth loader
+// Show loader
 export function showSpinner(btn:HTMLButtonElement):void {
     btn.innerHTML = `
     <div class="spinner-border spinner-border-sm" role="status">
@@ -52,7 +45,7 @@ export function showSpinner(btn:HTMLButtonElement):void {
     </div>`
 }
 
-// hide auth loader
+// hide loader
 export function hideSpinner(btn:HTMLButtonElement, message: string):void {
     btn.innerHTML = message
 }
@@ -109,6 +102,7 @@ element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 
 type();
 }
+
 
 // input above Keybord
 export function checkUI(): void {

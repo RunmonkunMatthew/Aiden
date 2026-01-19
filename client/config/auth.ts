@@ -1,7 +1,7 @@
 import type { User } from "../src/types";
 import { auth} from "./firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup,signOut, } from "firebase/auth";
-import {saveUserToStorage, serverTimestamp} from './storage'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail,signOut, } from "firebase/auth";
+import {saveUserToStorage} from './storage'
 
 
 export async function createAccount(email:string, password:string) {
