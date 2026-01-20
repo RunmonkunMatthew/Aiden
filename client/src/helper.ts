@@ -1,4 +1,26 @@
 import { FirebaseError } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+export function router(){
+  const pages = {
+    welcome:  document.getElementById('intro-slider') as HTMLDivElement,
+    chat: document.getElementById('main-ui') as HTMLDivElement
+  }
+
+  
+}
+
+export function render() {
+  const auth = getAuth()
+
+  onAuthStateChanged(auth, user => {
+    if(user) {
+      showMainUi()
+    } else {
+      showWelcome()
+    }
+  })
+}
 
 // show main ui
 export function showMainUi():void {
@@ -11,7 +33,7 @@ export function showMainUi():void {
   mainUi.classList.remove('hidden')
 }
 
-//s howWelcome
+//showWelcome
 export function showWelcome():void {
   const header = document.querySelector('.header') as HTMLDivElement;
   const slider = document.querySelector('.slider') as HTMLDivElement;
@@ -22,7 +44,7 @@ export function showWelcome():void {
   mainUi.classList.add('hidden')
 }
 
-// Show loader
+// Show auth loader
 export function showSpinner(btn:HTMLButtonElement):void {
     btn.innerHTML = `
     <div class="spinner-border spinner-border-sm" role="status">
@@ -30,7 +52,7 @@ export function showSpinner(btn:HTMLButtonElement):void {
     </div>`
 }
 
-// hide loader
+// hide auth loader
 export function hideSpinner(btn:HTMLButtonElement, message: string):void {
     btn.innerHTML = message
 }
@@ -48,6 +70,45 @@ export function showAlert( text:string):void {
   }, 3000)
 }
 
+// show typing indicator
+export function showTypingIndicator() {
+const container = document.getElementById('messages')!;
+const bubble = document.createElement('div');
+
+bubble.className = 'typing-indicator';
+bubble.id = 'typing-indicator';
+
+bubble.innerHTML = `
+<span></span>
+<span></span>
+<span></span>
+`;
+
+container.appendChild(bubble);
+container.scrollTop = container.scrollHeight;
+}
+
+// hide typing indicator
+export function removeTypingIndicator() {
+document.getElementById('typing-indicator')?.remove();
+}
+
+
+// Typing animation
+export function typeText(element: HTMLElement, text: string, speed = 20) {
+let index = 0;
+
+function type() {
+if (index < text.length) {
+element.textContent += text.charAt(index);
+index++;
+setTimeout(type, speed);
+element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+}
+}
+
+type();
+}
 
 // input above Keybord
 export function checkUI(): void {
@@ -82,4 +143,10 @@ export function formatFirebaseError(error: unknown): string {
     return firebaseErrorMap[error.code] ?? "Something went wrong.";
   }
   return "Something went wrong.";
+}
+
+export function scrollToBottom(){
+  const messages = document.querySelector('#messages')! as HTMLDivElement
+
+  messages.scrollTop = messages.scrollHeight
 }

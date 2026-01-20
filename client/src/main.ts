@@ -1,8 +1,10 @@
-import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError } from './helper';
+import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
 import {createAccount, loginAccount, signUserOut} from '../config/auth';
+import axios from 'axios';
 import bot from '../public/bot.png?url';
 import './css/style.css';
 
+render()
 
 const botImage = document.getElementById('bot-image') as HTMLImageElement;
 botImage.src = bot;
@@ -21,6 +23,53 @@ const signupBtn = document.getElementById('signup-btn') as HTMLButtonElement
 const loginBtn = document.getElementById('login-btn') as HTMLButtonElement
 const inputBar = document.querySelector('.input-area') as HTMLElement;
 
+// Form Elements
+const chatInput = document.getElementById('chat-input') as HTMLTextAreaElement
+const chatBtn = document.getElementById('chat-btn') as HTMLButtonElement
+
+// OnSendRequest
+async function onSendRequest() {
+  const API_URL : string = 'https://aiden-7z8a.onrender.com/api/chat'
+  const message: string = chatInput.value
+
+  if(message === '') return
+
+  chatInput.value === ''
+  
+  addTextToDom('user', message)
+  showTypingIndicator()
+  
+  
+  const botRes = await fetchBotReply(API_URL, message)
+  console.log(botRes);
+  
+
+  removeTypingIndicator()
+  addTextToDom('bot', botRes.aiReply)
+  
+  scrollToBottom()
+}
+
+// fetch bot reply
+async function fetchBotReply(url:string, message:string) {
+  const res = await axios.post(url, {message})  
+  return res.data
+}
+
+// Add text to DOM
+function addTextToDom(role: string, text: string): void {
+  const messageDiv = document.createElement('div') as HTMLDivElement
+  messageDiv.appendChild(document.createTextNode(text))
+  messageDiv.classList.add('message')
+
+  if(role === 'user'){
+    messageDiv.classList.add('user')
+  } else{
+    messageDiv.classList.add('bot')
+  }
+
+  document.querySelector('.messages')?.appendChild(messageDiv)
+}
 
 // Create Account
 async function createNewUser(e:Event): Promise<void> {  
@@ -113,3 +162,4 @@ loginForm.addEventListener('submit', loginUser);
 window.visualViewport?.addEventListener('scroll', () => {
   inputBar.style.transform = `translate(${window.visualViewport?.offsetTop}px)`
 })
+chatBtn.addEventListener('click', onSendRequest)

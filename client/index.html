@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta property="og:title" content="Aiden" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="" />
@@ -36,7 +39,7 @@
     <title>Aiden</title>
   </head>
   <body>
-    <div class="header hidden">
+    <div class="header">
       <button
         class="btn btn-primary"
         id="leftmodal"
@@ -103,26 +106,24 @@
       </button>
     </div>
 
-    <div class="main-ui hidden">
-      <div class="chat-container">
-        <div class="messages" id="messages">
-          <div class="message bot">
-            hi, i am Sentry, i help you stay safe, calm and prepared in
-            emergencies
-          </div>
+    <div class="main-ui">
+      <div class="messages" id="messages">
+        <div class="message user">My brother slipped and fell in a ditch</div>
 
-          <div class="message user">My brother slipped and fell in a ditch</div>
+        <div class="message bot">
+          hi, i am Sentry, i help you stay safe, calm and prepared in
+          emergencies
         </div>
       </div>
 
       <div class="input-area">
         <textarea
           name=""
-          id="chatinput"
+          id="chat-input"
           class="chatInput"
           placeholder="i'm Sentry, how can i assist you?"
         ></textarea>
-        <button id="sendbtn"><i class="fa-regular fa-paper-plane"></i></button>
+        <button id="chat-btn">Send</button>
       </div>
     </div>
 
@@ -278,52 +279,20 @@
       </div>
       <div class="offcanvas-body">
         <div>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <h2>Chat history shows here...</h2>
+          Coming Soon, hold we are cooking something impressive
         </div>
-        <div class="dropdown mt-3">
+        <div class="mt-3">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="btn btn-secondary log-out"
             type="button"
-            id="dropdownMenuButton"
+            id="log-out-btn"
             data-bs-toggle="dropdown"
           >
-            Dropdown button
+            Log out
           </button>
         </div>
       </div>
-    </div>
-
-    <!-- Bottom offcanvas -->
-
-    <!-- <button
-      class="btn btn-primary"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasBottom"
-      aria-controls="offcanvasBottom"
-    >
-      Toggle bottom offcanvas
-    </button> -->
-
-    <div
-      class="offcanvas offcanvas-bottom"
-      tabindex="-1"
-      id="offcanvasBottom"
-      aria-labelledby="offcanvasBottomLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasBottomLabel">
-          Offcanvas bottom
-        </h5>
-        <button
-          type="button"
-          class="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body small">...</div>
     </div>
   </body>
 </html>
