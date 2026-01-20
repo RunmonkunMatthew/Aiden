@@ -1,6 +1,6 @@
 import type { User } from "../src/types";
-import { auth } from "./firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup,signOut, onAuthStateChanged } from "firebase/auth";
+import { auth} from "./firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup,signOut, } from "firebase/auth";
 import {saveUserToStorage, serverTimestamp} from './storage'
 
 
@@ -11,13 +11,14 @@ export async function createAccount(email:string, password:string) {
     
     
     let newUser: User = {
-      id: res.user.uid,
+       id: res.user.uid,
       email: res.user.email,
-      chats: {},
+      createdAt: Date.now()
     }
 
-    saveUserToStorage(newUser, newUser.id);
- 
+    saveUserToStorage(newUser, res.user.uid);
+    console.log(newUser);
+    
 }
 
 export async function loginAccount(email:string, password: string) {
@@ -42,6 +43,3 @@ export async function resetPassword(email:string) {
 export async function signUserOut() {
   await signOut(auth)
 }
-
-
-
