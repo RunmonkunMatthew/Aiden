@@ -1,4 +1,4 @@
-import { showAlert, showSpinner, hideSpinner, showMainUi, showWelcome, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
+import { showAlert, showSpinner, hideSpinner, showMainUi, formatFirebaseError, render, showTypingIndicator, removeTypingIndicator, scrollToBottom } from './helper';
 import {createAccount, loginAccount, signUserOut} from '../config/auth';
 import axios from 'axios';
 import bot from '../public/bot.png?url';
@@ -52,7 +52,7 @@ async function onSendRequest() {
 }
 
 // fetch bot reply
-async function fetchBotReply(url:string, message:string) {
+async function fetchBotReply(url:string, message:string): Promise<any> {
   const res = await axios.post(url, {message})  
   return res.data
 }

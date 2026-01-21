@@ -33,7 +33,7 @@ export async function loginAccount(email:string, password: string) {
 export async function resetPassword(email:string) {
   try {
     const res = sendPasswordResetEmail(auth, email);
-    return {success: true}
+    return {success: true, message: res}
   } catch (error) {
     console.log(error);
   
