@@ -44,7 +44,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include":[
+  "include": [
     "server/**/*.ts"
   ],
   "exclude": [
